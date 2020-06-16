@@ -1,2 +1,3 @@
-# vuetify-playground
-Created with CodeSandbox
+# My Vuetify Playground on CodeSandbox
+
+Some new stuff.
