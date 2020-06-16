@@ -24,8 +24,23 @@
       <!-- Provides the application the proper gutter -->
       <v-container fluid>
 
+        <div>
+          <v-btn
+            @click="tryRouter"
+            small
+            color="primary"
+          >Try Router</v-btn>
+          <br>
+          <v-btn
+            @click="tryArticle"
+            small
+            color="green"
+          >Try Article</v-btn>
+        </div>
         <!-- If using vue-router -->
-        <!-- <router-view></router-view> -->
+        <router-link to="/">Home</router-link><br>
+        <router-link to="/profile">Profile</router-link>
+        <router-view></router-view>
       </v-container>
     </v-main>
 
@@ -46,9 +61,15 @@ export default {
       drawer: true,
       expandOnHover: false,
       miniVariant: false,
-      permanent: true,
+      permanent: false,
       right: false
     };
+  },
+  methods: {
+    tryRouter() {
+      console.log('tryRouter !!');
+      this.$router.push({ path: '/profile' });
+    }
   },
   computed: {
     bg() {
