@@ -58,7 +58,7 @@ export default {
     return {
       background: false,
       color: 'primary',
-      drawer: true,
+      drawer: false,
       expandOnHover: false,
       miniVariant: false,
       permanent: false,
@@ -66,6 +66,10 @@ export default {
     };
   },
   methods: {
+    tryArticle() {
+      console.log('tryArticle !!');
+      this.$router.push({ path: '/post/my-post' });
+    },
     tryRouter() {
       console.log('tryRouter !!');
       this.$router.push({ path: '/profile' });

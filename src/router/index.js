@@ -15,8 +15,14 @@ const routes = [
   },
   {
     path: '/post/:postID',
+    // Permet de récupérer la valeur de postID dans les props du composants
+    props: true,
     name: 'post',
-    component: ArticlePage
+    component: ArticlePage,
+    beforeEnter: (to, from, next) => {
+      console.log(`Enter in ${to.path}`);
+      next();
+    }
   },
   {
     path: '/profile',
@@ -28,6 +34,20 @@ const routes = [
 const router = new VueRouter({
   mode: 'history',
   routes
+});
+
+router.beforeEach((to, from, next) => {
+  console.log(`You go to ${to.path}`);
+  if (to.path === '/profile') {
+    if ('OK' !== 'OK') {
+      console.log(`Vous n'avez pas l'autorisation !!`);
+      next(false);
+    } else {
+      next();
+    }
+  } else {
+    next();
+  }
 });
 
 export default router;
