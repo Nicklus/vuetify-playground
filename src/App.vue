@@ -30,13 +30,19 @@
             small
             color="primary"
           >Try Router</v-btn>
-          <br>
+        </div>
+
+        <v-form>
+          <v-text-field
+            v-model="postID"
+            label="postID"
+          ></v-text-field>
           <v-btn
             @click="tryArticle"
             small
             color="green"
           >Try Article</v-btn>
-        </div>
+        </v-form>
         <!-- If using vue-router -->
         <router-link to="/">Home</router-link><br>
         <router-link to="/profile">Profile</router-link>
@@ -62,13 +68,14 @@ export default {
       expandOnHover: false,
       miniVariant: false,
       permanent: false,
+      postID: '',
       right: false
     };
   },
   methods: {
     tryArticle() {
       console.log('tryArticle !!');
-      this.$router.push({ path: '/post/my-post' });
+      this.$router.push({ path: `/post/${this.postID}` });
     },
     tryRouter() {
       console.log('tryRouter !!');
